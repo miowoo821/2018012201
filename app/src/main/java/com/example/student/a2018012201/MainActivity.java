@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     {
         File dbFile = new File(getFilesDir(), "student.db");
         //新建一個檔案，放在getFilesDir裡面，叫做student
-        InputStream is = getResources().openRawResource(R.raw.students);
+        InputStream is = getResources().openRawResource(R.raw.school);
         //getResources抓出來的是InputStream類型，所以要用一個InputStream裝他
         try {
             OutputStream os = new FileOutputStream(dbFile);//弄一個寫入的物件，目標是dbFile這個檔案物件
@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
         // Cursor物件，可以處理db給的資料，
         //新增一個 Cursor將db物件查詢出來的資料丟進去
 
-        c.moveToFirst();//moveToFirst,游標移動到下一筆資料
+        c.moveToFirst();//moveToFirst,游標移動到第一筆資料
         Log.d("DB", c.getString(1) + "," + c.getInt(2));//把這筆資料的第1、2欄(第0欄是_id)抓到LOG秀出來
-        c.moveToNext();
+        c.moveToNext();//moveToFirst,游標移動到下一筆資料
         Log.d("DB", c.getString(1) + "," + c.getInt(2));
     }
 }
